@@ -10,6 +10,8 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
+  const [age, setAge] = useState("");
+  const [gender, setGender] = useState("");
   const [isLogin, setIsLogin] = useState(true);
   const [showPassword, setShowPassword] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
@@ -37,7 +39,7 @@ const Login = () => {
     try {
       const response = await axios.post(
         BASE_URL + "/signup",
-        { firstName, lastName, emailId, password },
+        { firstName, lastName, emailId, password, age, gender },
         { withCredentials: true }
       );
       dispatch(addUser(response?.data?.data));
@@ -93,6 +95,40 @@ const Login = () => {
                 onChange={(e) => setLastName(e.target.value)}
                 className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 border-black focus:border-transparent"
                 placeholder="Enter your Last Name"
+                required
+              />
+            </div>
+            <div className="mb-4">
+              <label
+                className="block mb-2 text-sm  text-gray-700 font-bold"
+                htmlFor="age"
+              >
+                Age
+              </label>
+              <input
+                type="age"
+                id="age"
+                value={age}
+                onChange={(e) => setAge(e.target.value)}
+                className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 border-black focus:border-transparent"
+                placeholder="Enter Your Age"
+                required
+              />
+            </div>
+            <div className="mb-4">
+              <label
+                className="block mb-2 text-sm  text-gray-700 font-bold"
+                htmlFor="gender"
+              >
+                Gender
+              </label>
+              <input
+                type="gender"
+                id="gender"
+                value={gender}
+                onChange={(e) => setGender(e.target.value)}
+                className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 border-black focus:border-transparent"
+                placeholder="Enter Your Gender"
                 required
               />
             </div>

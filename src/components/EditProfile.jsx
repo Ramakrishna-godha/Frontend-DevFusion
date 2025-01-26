@@ -24,7 +24,7 @@ const EditProfile = ({ user }) => {
   const [error, setError] = useState("");
   const dispatch = useDispatch();
   const users = useSelector((state) => state.user.user); // Get updated user from Redux
-  console.log("Updated user from Redux:", users);
+  // console.log("Updated user from Redux:", users);
 
   const saveProfile = async () => {
     setError("");
@@ -47,7 +47,7 @@ const EditProfile = ({ user }) => {
         }
       );
 
-      console.log("Update response:", response?.data);
+      // console.log("Update response:", response?.data);
 
       if (response?.data?.data) {
         dispatch(addUser(response.data.data)); // Ensure correct path to user data

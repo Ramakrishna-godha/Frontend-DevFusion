@@ -33,7 +33,10 @@ const Feed = () => {
 
   if (feed.length <= 0)
     return (
-      <h1 className="font-bold items-center text-2xl">
+      <h1
+        className="flex font-bold
+  justify-center h-screen"
+      >
         No More New Users Found
       </h1>
     );
